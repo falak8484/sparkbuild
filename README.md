@@ -83,4 +83,13 @@ This project demonstrates practical integration of frontend development, authent
    python3 -m http.server 5500
 
    made by falak shaikh
-   
+
+   ## 📸 Screenshots
+
+![SparkBuild](spark1.png)
+![SparkBuild](spark2.png)
+![SparkBuild](spark3.png)
+![SparkBuild](spark4.png)
+![SparkBuild](spark5.png)
+
+
