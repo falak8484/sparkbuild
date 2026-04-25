@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-guest-only="true">
+<header class="topbar editorial-topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="help.html">Help</a>
+      <a href="register.html">Register</a>
+      <a href="signin.html">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container section auth-shell">
+  <section class="auth-layout fade-up">
+    <article class="auth-story card">
+      <div class="eyebrow">Create your account</div>
+      <h1 class="page-title">Start building websites with a calmer, prettier workspace.</h1>
+      <p class="muted">After signup, verify your email once. Then SparkBuild opens your dashboard and keeps your saved website projects together.</p>
+      <div class="auth-points">
+        <span class="soft-tag">Firebase auth stays</span>
+        <span class="soft-tag">Projects saved</span>
+        <span class="soft-tag">Preview export ready</span>
+      </div>
+    </article>
+
+    <section class="form-card auth-form-card">
+      <div id="registerStatus" class="status"></div>
+      <form id="registerForm" class="form-stack">
+        <label for="registerEmail">Email</label>
+        <input id="registerEmail" type="email" placeholder="you@example.com" required>
+        <label for="registerPassword">Password</label>
+        <input id="registerPassword" type="password" placeholder="Minimum 6 characters" required>
+        <label for="registerConfirmPassword">Confirm password</label>
+        <input id="registerConfirmPassword" type="password" placeholder="Repeat password" required>
+        <div class="button-row">
+          <button type="submit">Create account</button>
+          <a href="signin.html"><button type="button" class="secondary">Already have an account</button></a>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/js/register.js"></script>
+</body>
+</html>

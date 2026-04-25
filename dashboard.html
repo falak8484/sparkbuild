@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-auth-only="true">
+<header class="topbar editorial-topbar">
+  <div class="container nav">
+    <a class="brand" href="dashboard.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create.html">Create</a>
+      <a href="history.html">History</a>
+      <button class="secondary" data-logout>Logout</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container section app-shell">
+  <div id="dashboardStatus" class="status"></div>
+  <section class="editorial-hero card dashboard-hero fade-up">
+    <div class="editorial-copy">
+      <div class="eyebrow">Luxury builder workspace</div>
+      <h1 class="page-title">Design websites that feel art directed, not templated.</h1>
+      <p class="muted">Signed in as <span data-user-email id="dashboardWelcome"></span>. Build, edit, save, and export polished sites from one calm workspace.</p>
+      <div class="button-row">
+        <a href="create.html"><button>Create new website</button></a>
+        <a href="history.html"><button class="secondary">Open history</button></a>
+      </div>
+    </div>
+    <div class="editorial-visual soft-panel">
+      <div class="metric-stack">
+        <div class="metric-card glassy">
+          <span class="metric-label">Projects</span>
+          <strong id="projectCount">0</strong>
+        </div>
+        <div class="metric-card glassy">
+          <span class="metric-label">Latest project</span>
+          <strong id="latestProjectTitle">Loading…</strong>
+          <span class="muted small" id="latestProjectMeta">Checking your workspace…</span>
+          <a id="latestProjectLink" href="create.html" class="text-link">Open latest</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard-grid section">
+    <article class="card soft-panel fade-up" style="animation-delay:70ms">
+      <div class="stack-head">
+        <div>
+          <div class="eyebrow">Recent projects</div>
+          <h2>Continue where you left off</h2>
+        </div>
+      </div>
+      <div id="dashboardLoading" class="empty-state">Loading your workspace…</div>
+      <div id="dashboardEmpty" class="empty-state hidden">You do not have any projects yet. Generate your first website and it will appear here.</div>
+      <div id="dashboardProjects" class="page-grid editorial-cards"></div>
+    </article>
+
+    <article class="card inspiration-panel fade-up" style="animation-delay:120ms">
+      <div class="eyebrow">Design direction</div>
+      <h2>Use prompts with visual intent</h2>
+      <div class="inspo-list">
+        <div class="inspo-item"><strong>Editorial soft luxury</strong><span>Muted beige palette, serif headings, airy hero, abstract accents.</span></div>
+        <div class="inspo-item"><strong>Boutique product story</strong><span>Feature collection focus, curated product cards, premium copy blocks.</span></div>
+        <div class="inspo-item"><strong>Calm modern portfolio</strong><span>Thin navigation, gallery-led layout, soft spacing, restrained CTA.</span></div>
+      </div>
+      <a href="create.html" class="text-link">Go to Create →</a>
+    </article>
+  </section>
+</main>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>

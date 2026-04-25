@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project history — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-auth-only="true">
+
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="dashboard.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create.html">Create</a>
+      <a href="history.html">History</a>
+      <button class="secondary" data-logout>Logout</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container section" data-auth-only="true">
+  <section class="card"><div class="eyebrow">Saved projects</div><h1 class="page-title" style="font-size:3.2rem">History</h1><p class="muted">Open, duplicate, or delete your saved websites.</p></section>
+  <div id="historyEmpty" class="card empty-state hidden">No saved projects yet.</div>
+  <div id="historyList" class="page-grid"></div>
+</main>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/js/history.js"></script>
+</body>
+</html>

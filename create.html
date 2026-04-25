@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create website — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-auth-only="true">
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="dashboard.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create.html">Create</a>
+      <a href="history.html">History</a>
+      <button class="secondary" data-logout>Logout</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container section" data-auth-only="true">
+  <section class="prompt-hero">
+    <div class="prompt-eyebrow">✦ AI website generator</div>
+    <h1 class="prompt-title">What website do you want to build?</h1>
+    <p class="prompt-sub">Describe your idea in plain words — SparkBuild generates a full website with sections, images, content, and design automatically.</p>
+  </section>
+
+  <section class="prompt-card">
+    <div id="builderStatus" class="status"></div>
+
+    <div class="prompt-box-wrap">
+      <textarea id="mainPrompt" class="prompt-textarea" placeholder="e.g. A cozy bakery called Sweet Crumbs that sells artisan sourdough, croissants, and custom birthday cakes. Warm and inviting vibe, with a pastel color scheme. Located in Bangalore." rows="4"></textarea>
+      <div class="prompt-examples">
+        <span class="prompt-examples-label">Try:</span>
+        <button class="example-chip" data-example="A photography portfolio for a travel photographer named Aria. Minimal and elegant, showcasing landscape, portrait, and street photography.">📷 Portfolio</button>
+        <button class="example-chip" data-example="An online store selling handmade candles and wellness products. Soft earthy tones. Products include lavender soy candles, bath salts, and essential oil diffusers with prices.">🕯️ E-commerce</button>
+        <button class="example-chip" data-example="A birthday celebration page for someone turning 25. Fun, colorful, with photos, a message wall, and heartfelt wishes. Name: Priya.">🎂 Birthday</button>
+        <button class="example-chip" data-example="Sunrise Academy — a modern college offering technology, design, and business programs. Professional and welcoming, targeting young learners.">🎓 College</button>
+        <button class="example-chip" data-example="A flower shop called Bloom and Co. that sells wedding bouquets, event arrangements, and potted plants. Soft pastels, dreamy and feminine.">🌸 Flower Shop</button>
+        <button class="example-chip" data-example="A tech startup landing page for an AI productivity app called FocusFlow. Bold, modern, with a clear hero, feature list, pricing, and CTA.">🚀 Startup</button>
+      </div>
+    </div>
+
+    <div class="prompt-options-row">
+      <div class="prompt-option-group">
+        <label class="option-label">Image source</label>
+        <div class="chip-row">
+          <label class="chip active"><input type="radio" name="imageOption" value="unsplash" checked>Unsplash</label>
+          <label class="chip"><input type="radio" name="imageOption" value="pexels">Pexels</label>
+          <label class="chip"><input type="radio" name="imageOption" value="upload">Upload mine</label>
+          <label class="chip"><input type="radio" name="imageOption" value="none">No images</label>
+        </div>
+      </div>
+      <div class="prompt-option-group hidden" id="uploadWrap">
+        <label class="option-label">Upload images</label>
+        <button type="button" class="secondary small" id="uploadTrigger">Choose images</button>
+        <span id="uploadCount" class="muted" style="font-size:.88rem"></span>
+        <input type="file" id="uploadedImages" accept="image/*" multiple style="display:none">
+      </div>
+    </div>
+
+    <div class="prompt-advanced">
+      <button type="button" class="ghost small" id="toggleAdvancedBtn">⚙ Advanced options</button>
+    </div>
+
+    <div class="advanced-panel hidden" id="advancedPanel">
+      <div class="adv-grid">
+        <div>
+          <label>Style vibe</label>
+          <div class="chip-row">
+            <label class="chip"><input type="checkbox" name="vibes" value="cute">cute</label>
+            <label class="chip"><input type="checkbox" name="vibes" value="minimal">minimal</label>
+            <label class="chip"><input type="checkbox" name="vibes" value="elegant">elegant</label>
+            <label class="chip"><input type="checkbox" name="vibes" value="playful">playful</label>
+            <label class="chip"><input type="checkbox" name="vibes" value="bold">bold</label>
+            <label class="chip"><input type="checkbox" name="vibes" value="cozy">cozy</label>
+          </div>
+        </div>
+        <div>
+          <label>Color preference</label>
+          <div class="chip-row">
+            <label class="chip active"><input type="radio" name="colorMode" value="ai" checked>AI choose</label>
+            <label class="chip"><input type="radio" name="colorMode" value="custom">Custom</label>
+          </div>
+          <input type="color" id="customColor" value="#88b79a" style="margin-top:10px;width:60px;height:36px;border-radius:10px;border:none;cursor:pointer;display:none">
+        </div>
+      </div>
+    </div>
+
+    <div class="generate-row">
+      <button id="generateBtn" type="button" class="generate-btn">
+        <span class="generate-icon">✦</span>
+        Generate website
+      </button>
+      <span class="generate-hint muted">Usually takes 2–5 seconds</span>
+    </div>
+
+    <div id="generatingState" class="generating-state hidden">
+      <div class="gen-animation">
+        <div class="gen-dot"></div>
+        <div class="gen-dot"></div>
+        <div class="gen-dot"></div>
+      </div>
+      <div id="genStatusMsg" class="gen-msg">Understanding your prompt…</div>
+    </div>
+    <div id="questionFlowPanel" class="question-panel hidden">
+      <div class="question-panel-header">
+        <div>
+          <div class="eyebrow">Smart follow-up</div>
+          <h3 class="question-title">A few details to make your website better</h3>
+          <p class="muted" id="questionIntroText">SparkBuild uses these answers to choose the right sections, tone, CTA, and images.</p>
+        </div>
+        <button type="button" class="ghost small" id="skipQuestionsBtn">Skip and generate</button>
+      </div>
+      <div id="questionFields" class="question-grid"></div>
+      <div class="generate-row" style="margin-top:18px">
+        <button id="continueGenerateBtn" type="button" class="generate-btn">Continue with AI</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="inspiration-row">
+    <div class="insp-label muted">Example ideas</div>
+    <div class="insp-chips">
+      <span class="insp-chip">🍞 Sweet Crumbs Bakery</span>
+      <span class="insp-chip">💼 Alex Kim Portfolio</span>
+      <span class="insp-chip">🌷 Bloom &amp; Co.</span>
+      <span class="insp-chip">🎓 Sunrise Academy</span>
+      <span class="insp-chip">🕯️ Lumière Candles</span>
+    </div>
+  </section>
+</main>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/js/builder.js"></script>
+</body>
+</html>

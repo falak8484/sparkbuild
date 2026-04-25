@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-guest-only="true">
+<header class="topbar editorial-topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="help.html">Help</a>
+      <a href="register.html">Register</a>
+      <a href="signin.html">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container section auth-shell">
+  <section class="auth-layout fade-up">
+    <article class="auth-story card">
+      <div class="eyebrow">Welcome back</div>
+      <h1 class="page-title">Sign in to your premium builder workspace.</h1>
+      <p class="muted">Your email must be verified before SparkBuild opens the dashboard. Once signed in, your saved projects and history appear automatically.</p>
+      <div class="auth-points">
+        <span class="soft-tag">Luxury UI</span>
+        <span class="soft-tag">Saved history</span>
+        <span class="soft-tag">Editable preview</span>
+      </div>
+      <div class="auth-artboard">
+        <div class="art-card art-card-large"></div>
+        <div class="art-card-row"><span></span><span></span><span></span></div>
+      </div>
+    </article>
+
+    <section class="form-card auth-form-card">
+      <div id="signinStatus" class="status"></div>
+      <form id="signinForm" class="form-stack">
+        <label for="signinEmail">Email</label>
+        <input id="signinEmail" type="email" placeholder="you@example.com" required>
+        <label for="signinPassword">Password</label>
+        <input id="signinPassword" type="password" placeholder="Your password" required>
+        <div class="button-row">
+          <button type="submit">Sign in</button>
+          <a href="register.html"><button type="button" class="secondary">Create account</button></a>
+        </div>
+        <button type="button" id="resendVerificationBtn" class="ghost hidden">Resend verification email</button>
+      </form>
+    </section>
+  </section>
+</main>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="assets/js/signin.js"></script>
+</body>
+</html>

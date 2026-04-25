@@ -1,0 +1,11 @@
+{
+  "name": "sparkbuild-premium-v2",
+  "version": "2.1.0",
+  "private": true,
+  "description": "SparkBuild premium v2 with a no-dependency local Node server",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

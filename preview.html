@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview — SparkBuild</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-auth-only="true">
+
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="dashboard.html">
+      <div class="brand-badge">✦</div>
+      <span>SparkBuild</span>
+    </a>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create.html">Create</a>
+      <a href="history.html">History</a>
+      <a href="help.html">Help</a>
+      <button class="secondary" data-logout>Logout</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container section" data-auth-only="true">
+  <section class="card">
+    <div class="eyebrow">Editable preview</div>
+    <h1 class="page-title" style="font-size:3.1rem" id="previewProjectTitle">Project preview</h1>
+    <p class="muted">Click text to edit. Replace or regenerate images. Reorder or add sections. Then finalize your website.</p>
+  </section>
+  <section class="form-card">
+    <div id="previewStatus" class="status"></div>
+    <div class="toolbar">
+      <div class="tabs" id="pageTabs"></div>
+      <div class="inline-actions">
+        <button class="secondary active" data-view="desktop">Desktop</button>
+        <button class="secondary" data-view="mobile">Mobile</button>
+        <button class="ghost" id="addSectionBtn">Add section</button>
+        <button class="secondary" id="saveProjectBtn">Save project</button>
+        <button id="finalizeWebsiteBtn">Finalize website</button>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:18px">
+      <div class="info-tile"><strong>Image regeneration helper</strong><p class="muted">Type an image direction, then use Regenerate on any image block.</p><input id="imagePromptInput" type="text" placeholder="Example: elegant floral bouquet in soft pastel lighting"></div>
+      <div class="info-tile"><strong>Deployment quick steps</strong><p class="muted" id="deploymentHelpText">Extract the ZIP, keep index.html in the root folder, upload all files to any static host, then connect a domain if needed.</p><button class="secondary" id="copyDeploymentText">Copy quick steps</button></div>
+    </div>
+    <div class="preview-shell"><div class="preview-frame" id="previewFrame"></div></div>
+  </section>
+</main>
+<div class="modal-backdrop" id="sectionModal">
+  <div class="modal">
+    <h3>Add a section</h3>
+    <p class="muted">Choose what you want to add to the current page.</p>
+    <div class="button-row">
+      <button id="addTextSection">Text section</button>
+      <button id="addCardsSection">Cards section</button>
+      <button id="addGallerySection">Gallery section</button>
+      <button class="secondary" data-close-modal>Close</button>
+    </div>
+  </div>
+</div>
+<input type="file" accept="image/*" class="file-upload" id="hiddenImageUpload">
+
+<script src="firebase-config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script><script type="module" src="assets/js/preview.js"></script>
+</body>
+</html>
