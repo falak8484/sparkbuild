@@ -6,12 +6,6 @@ Designed with a focus on simplicity, aesthetics, and usability, SparkBuild trans
 
 ---
 
-## 🌐 Live Demo
-
-👉 https://your-username.github.io/SparkBuild/
-
----
-
 ## 🚀 Features
 
 - 🤖 AI-assisted website generation (prompt + form based)
