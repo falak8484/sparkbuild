@@ -86,10 +86,10 @@ This project demonstrates practical integration of frontend development, authent
 
    ## 📸 Screenshots
 
-![SparkBuild](spark1.png)
-![SparkBuild](spark2.png)
-![SparkBuild](spark3.png)
-![SparkBuild](spark4.png)
-![SparkBuild](spark5.png)
+![SparkBuild](spark ss/spark1.png)
+![SparkBuild](spark ss/spark2.png)
+![SparkBuild](spark ss/spark3.png)
+![SparkBuild](spark ss/spark4.png)
+![SparkBuild](spark ss/spark5.png)
 
 
